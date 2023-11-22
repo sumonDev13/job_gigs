@@ -28,5 +28,5 @@ Route::get('/post/{id}', function($id){
 })->where('id','[0-9]+');
 
 Route::get('/search', function(Request $request){
-
+    return $request->name . ' ' .$request->city;
 });
