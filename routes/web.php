@@ -15,18 +15,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/hello', function () {
-    return response ('<h1>its my first laravel application</h1>', 200)
-    ->header('Content-Type', 'text/plain');
-});
-
-Route::get('/post/{id}', function($id){
-    return response('post ' .$id);
-})->where('id','[0-9]+');
-
-Route::get('/search', function(Request $request){
-    return $request->name . ' ' .$request->city;
+    return view('listing',[
+        'heading'=>'latest Listing',
+        'listings'=>[
+            [
+                'id'=>'1',
+                'title'=>'listing one',
+                'description'=>'listing one description Lorem ipsum dolor sit amet, consectetur adip'
+            ],
+            [
+                'id'=>'2',
+                'title'=>'listing two',
+                'description'=>'listing two description Lorem ipsum dolor sit amet Lorem Lorems'
+            ]
+        ]
+    ]);
 });
